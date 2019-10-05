@@ -18,7 +18,7 @@ class Q3Object {
     }
 
     public void setAlice(int[] alice) {
-        this.alice = this.alice;
+        this.alice = alice;
     }
 
 }
