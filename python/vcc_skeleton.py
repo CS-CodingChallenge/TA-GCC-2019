@@ -17,7 +17,7 @@ from Question6 import question06
 class Test(unittest.TestCase):
 
     def test_runq1_main(self):
-        travis_uuid = os.environ.get('travistestidentifier', '')
+        travis_uuid = os.environ.get('travis_uuid', '')
         print(travis_uuid)
         if travis_uuid != '' or None:
             url = "https://cscc-gl.herokuapp.com/tests/run/1/" + travis_uuid
@@ -67,11 +67,11 @@ class Test(unittest.TestCase):
         if travis_uuid != '' or None:
             jsonresponse = json.dumps(response)
             headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
-            requests.post('https://cscc-gl.herokuapp.com/answer/contestant/' + travis_uuid + '/1',
+            requests.post('https://cscc-us.herokuapp.com/answer/contestant/' + travis_uuid + '/1',
                           data=jsonresponse, headers=headers)
 
     def test_runq2_main(self):
-        travis_uuid = os.environ.get('travistestidentifier', '')
+        travis_uuid = os.environ.get('travis_uuid', '')
         if travis_uuid != '' or None:
             url = "https://cscc-gl.herokuapp.com/tests/run/2/" + travis_uuid
         else:
@@ -119,11 +119,11 @@ class Test(unittest.TestCase):
         if travis_uuid != '' or None:
             jsonresponse = json.dumps(response)
             headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
-            requests.post('https://cscc-gl.herokuapp.com/answer/contestant/' + travis_uuid + '/2',
+            requests.post('https://cscc-us.herokuapp.com/answer/contestant/' + travis_uuid + '/2',
                           data=jsonresponse, headers=headers)
 
     def test_runq3_main(self):
-        travis_uuid = os.environ.get('travistestidentifier', '')
+        travis_uuid = os.environ.get('travis_uuid', '')
         if travis_uuid != '' or None:
             url = "https://cscc-gl.herokuapp.com/tests/run/3/" + travis_uuid
         else:
@@ -171,11 +171,11 @@ class Test(unittest.TestCase):
         if travis_uuid != '' or None:
             jsonresponse = json.dumps(response)
             headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
-            requests.post('https://cscc-gl.herokuapp.com/answer/contestant/' + travis_uuid + '/3',
+            requests.post('https://cscc-us.herokuapp.com/answer/contestant/' + travis_uuid + '/3',
                           data=jsonresponse, headers=headers)
 
     def test_runq4_main(self):
-        travis_uuid = os.environ.get('travistestidentifier', '')
+        travis_uuid = os.environ.get('travis_uuid', '')
         if travis_uuid != '' or None:
             url = "https://cscc-gl.herokuapp.com/tests/run/4/" + travis_uuid
         else:
@@ -224,11 +224,11 @@ class Test(unittest.TestCase):
             jsonresponse = json.dumps(response)
             print(jsonresponse)
             headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
-            requests.post('https://cscc-gl.herokuapp.com/answer/contestant/' + travis_uuid + '/4',
+            requests.post('https://cscc-us.herokuapp.com/answer/contestant/' + travis_uuid + '/4',
                           data=jsonresponse, headers=headers)
 
     def test_runq5_main(self):
-        travis_uuid = os.environ.get('travistestidentifier', '')
+        travis_uuid = os.environ.get('travis_uuid', '')
         if travis_uuid != '' or None:
             url = "https://cscc-gl.herokuapp.com/tests/run/5/" + travis_uuid
         else:
@@ -277,11 +277,11 @@ class Test(unittest.TestCase):
         if travis_uuid != '' or None:
             jsonresponse = json.dumps(response)
             headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
-            requests.post('https://cscc-gl.herokuapp.com/answer/contestant/' + travis_uuid + '/5',
+            requests.post('https://cscc-us.herokuapp.com/answer/contestant/' + travis_uuid + '/5',
                           data=jsonresponse, headers=headers)
 
     def test_runq6_main(self):
-        travis_uuid = os.environ.get('travistestidentifier', '')
+        travis_uuid = os.environ.get('travis_uuid', '')
         if travis_uuid != '' or None:
             url = "https://cscc-gl.herokuapp.com/tests/run/6/" + travis_uuid
         else:
@@ -329,7 +329,7 @@ class Test(unittest.TestCase):
         if travis_uuid != '' or None:
             jsonresponse = json.dumps(response)
             headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
-            requests.post('https://cscc-gl.herokuapp.com/answer/contestant/' + travis_uuid + '/6',
+            requests.post('https://cscc-us.herokuapp.com/answer/contestant/' + travis_uuid + '/6',
                           data=jsonresponse, headers=headers)
 
 
