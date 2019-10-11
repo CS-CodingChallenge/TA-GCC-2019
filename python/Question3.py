@@ -2,36 +2,41 @@
 def question03(scores, alice):
     # modify and then return the variable below
     
-    ar_score = []
-    my_score = []
-    rank = []
+    i = 0
+    j = 0
+    k = 0
+    c = 0
+    answer = 0
+    n = len(scores)        
+    m = len(alice)
 
-    n = int(input())
-    for i in range(n):
-    	x = int(input())
-    	if x not in ar_score:
-    		ar_score.append(x)
+    rank = [0  for i in range(n+m)]
+    ref = [0 for i in range(0, m+n)]
+    duplicate = []
+    while(i<n):
+    	rank[k] = scores[i]
+    	i+=1
+    	k+=1
 
-    m = int(input())
-    for i in range(m):
-    	x = int(input())
-    	my_score.append(x)
+    while (j<m):
+    	rank[k] = alice[j]
+    	j+=1
+    	k+=1
+    
+    for w in range(0,len(rank)):
+    	ref[w] = rank[w]
 
-    for i in range(m):
-    	for j in range(n):
-    		if my_score[i] == ar_score[j]:
-    			rank.append(j+1)
-
-    		elif my_score[i]>ar_score[j]:
-    			if my_score[i]<ar_score[j-1]:
-    				rank.append(j+1)
-    		else:
-    			rank.append(len(ar_score)+1)
-
-    for i in rank:
+    for i in range(n, len(rank)-1):
     	if rank[i] == rank[i+1]:
-    		answer = rank[i]
-    	else:
-    		pass
+    		c = rank[i]
+
+    ref.sort(reverse=True)
+    for num in ref:
+    	if num not in duplicate:
+    		duplicate.append(num)
+    
+    for i in range(len(duplicate)):
+    	if c == duplicate[i]:
+    		answer = i+1
 
     return answer
