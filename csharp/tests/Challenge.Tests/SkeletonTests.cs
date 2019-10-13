@@ -1,25 +1,24 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
+using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using C_Sharp_Challenge_Skeleton.Answers;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Challenge.Answers;
 using Newtonsoft.Json;
 using NUnit.Framework;
-using Assert = Microsoft.VisualStudio.TestTools.UnitTesting.Assert;
 
-namespace C_Sharp_Challenge_Tests
+namespace Challenge.Tests
 {
-
     [TestFixture]
     public class SkeletonTests
     {
-
-        private static readonly HttpClient client = new HttpClient();
-        private readonly string baseUrl = "https://cscc-gl.herokuapp.com/";
+       private static readonly HttpClient client = new HttpClient();
+       private readonly string baseUrl = "https://cscc-gl.herokuapp.com/";
 
         [Test]
         public async Task TestQ1()
@@ -67,7 +66,9 @@ namespace C_Sharp_Challenge_Tests
                 string ans = JsonConvert.SerializeObject(answers);
                 await client.PostAsync(baseUrl + "answer/contestant/" + travisUUID + "/1", new StringContent(ans));
             }
+
             Assert.IsTrue(answers.All(x => x.correct == "CORRECT"));
+
         }
 
         Answer getFirstAnswer(Q1Object input, TestCase test)
@@ -76,7 +77,7 @@ namespace C_Sharp_Challenge_Tests
 
             timer.Start();
 
-            var answer = Question1.Answer(input.initialLevelOfDebt, input.interestPercentage, input.repaymentPercentage);
+            var answer = Question1.Answer(input.initialLevelOfDebt, input.interestPercentage, input.repaymentPercentage, test.output);
 
             timer.Stop();
 
@@ -87,7 +88,11 @@ namespace C_Sharp_Challenge_Tests
                 questionNumber = 1,
                 testNumber = test.testNumber,
                 correct = answer == test.output ? "CORRECT" : "INCORRECT",
-                speed = timeTaken
+                speed = timeTaken,
+                expected = (int)test.output,
+                actual = answer,
+                inputs = $"{input.initialLevelOfDebt}, {input.interestPercentage}, {input.repaymentPercentage}"
+
             };
         }
 

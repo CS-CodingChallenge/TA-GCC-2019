@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace C_Sharp_Challenge_Skeleton.Answers
+﻿namespace Challenge.Answers
 {
     public class Question3
     {

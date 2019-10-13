@@ -1,4 +1,4 @@
-namespace C_Sharp_Challenge_Tests
+namespace Challenge.Tests
 {
     public class Q4Object
     {
