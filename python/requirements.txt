@@ -3,3 +3,4 @@ multiprocessing
 numpy
 jsonify
 requests
+scipy
