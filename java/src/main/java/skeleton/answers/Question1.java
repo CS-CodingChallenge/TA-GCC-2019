@@ -10,7 +10,7 @@ public class Question1 {
 		double d = 0.1 * ild;
 		double r = (rp/100) * ild;
 		int c = 0;
-		while(ild > 50)
+		while(ild >= r)
 		{
 			ild = (1 + ip/100) * ild;
 			ild -= r;
