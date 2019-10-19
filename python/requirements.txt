@@ -5,3 +5,6 @@ jsonify
 requests
 scipy
 pandas
+
+cvxopt
+cvxpy
