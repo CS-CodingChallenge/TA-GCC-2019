@@ -2,7 +2,7 @@ package skeleton.answers;
 
 public class Question1 {
 
-    public static double calculateTotalPayment(double initialLevelOfDebt, double interestPercentage, double repaymentPercentage) {
+    public static int calculateTotalPayment(double initialLevelOfDebt, double interestPercentage, double repaymentPercentage) {
         // TODO Auto-generated method stub
         double ild = initialLevelOfDebt;
 		double ip = interestPercentage;
@@ -17,7 +17,7 @@ public class Question1 {
 			c++;
 			
 		}
-		double res = c * r + ild + d;
+		int res = (int) (c * r + ild + d);
         return res;
     }
 
