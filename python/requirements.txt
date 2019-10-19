@@ -4,3 +4,4 @@ numpy
 jsonify
 requests
 scipy
+pandas
