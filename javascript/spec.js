@@ -15,7 +15,7 @@ describe('Coding Challenge Skeleton Tests', () => {
     describe('Q1', () => {
 
         it('runs question 1', async () => {
-            getTests(1)
+            return getTests(1)
                 .then(tests => {
                     let promises = []
                     let output = []
@@ -51,7 +51,7 @@ describe('Coding Challenge Skeleton Tests', () => {
                             console.log(error)
                         }
                     }
-                    Promise.all(promises).then((response) => submitAnswers(response, 1))
+                    return Promise.all(promises).then((response) => submitAnswers(response, 1))
 
                 })
                 .catch(() => "Something went wrong.");
@@ -61,7 +61,7 @@ describe('Coding Challenge Skeleton Tests', () => {
         describe('Q2', () => {
 
             it('runs question 2', () => {
-                getTests(2)
+                return getTests(2)
                     .then(tests => {
                         let promises = []
 
@@ -96,7 +96,7 @@ describe('Coding Challenge Skeleton Tests', () => {
                                 console.log(error)
                             }
                         }
-                        Promise.all(promises).then((response) => submitAnswers(response, 2))
+                        return Promise.all(promises).then((response) => submitAnswers(response, 2))
 
                     })
             })
@@ -105,7 +105,7 @@ describe('Coding Challenge Skeleton Tests', () => {
         describe('Q3', () => {
 
             it('runs question 3', () => {
-                getTests(3)
+                return getTests(3)
                     .then(tests => {
                         let promises = []
                         for (let i = 0; i < tests.length; i++) {
@@ -139,7 +139,7 @@ describe('Coding Challenge Skeleton Tests', () => {
                                 console.log(error)
                             }
                         }
-                        Promise.all(promises).then((response) => submitAnswers(response, 3))
+                        return Promise.all(promises).then((response) => submitAnswers(response, 3))
 
                     })
             })
@@ -148,7 +148,7 @@ describe('Coding Challenge Skeleton Tests', () => {
         describe('Q4', () => {
 
             it('runs question 4', () => {
-                getTests(4)
+                return getTests(4)
                     .then(tests => {
                         let promises = []
                         for (let i = 0; i < tests.length; i++) {
@@ -182,7 +182,7 @@ describe('Coding Challenge Skeleton Tests', () => {
                                 console.log(error)
                             }
                         }
-                        Promise.all(promises).then((response) => submitAnswers(response, 4))
+                        return Promise.all(promises).then((response) => submitAnswers(response, 4))
 
                     })
             })
@@ -192,7 +192,7 @@ describe('Coding Challenge Skeleton Tests', () => {
         describe('Q5', () => {
 
             it('runs question 5', () => {
-                getTests(5)
+                return getTests(5)
                     .then(tests => {
                         let promises = []
                         for (let i = 0; i < tests.length; i++) {
@@ -226,7 +226,7 @@ describe('Coding Challenge Skeleton Tests', () => {
                                 console.log(error)
                             }
                         }
-                        Promise.all(promises).then((response) => submitAnswers(response, 5))
+                        return Promise.all(promises).then((response) => submitAnswers(response, 5))
                     })
             })
         })
@@ -234,7 +234,7 @@ describe('Coding Challenge Skeleton Tests', () => {
         describe('Q6', () => {
 
             it('runs question 6', () => {
-                getTests(6)
+                return getTests(6)
                     .then(tests => {
                         let promises = []
                         for (let i = 0; i < tests.length; i++) {
@@ -268,7 +268,7 @@ describe('Coding Challenge Skeleton Tests', () => {
                                 console.log(error)
                             }
                         }
-                        Promise.all(promises).then((response) => submitAnswers(response, 6))
+                        return Promise.all(promises).then((response) => submitAnswers(response, 6))
                     })
             })
         })
@@ -294,7 +294,7 @@ const submitAnswers = (answers, question) => {
     const uuid = process.env.travistestidentifier;
     if (uuid !== undefined) {
         const url = `https://cscc-gl.herokuapp.com/answer/contestant/${uuid}/${question}`
-        axios.post(url, answers).then(function (response) {
+        return axios.post(url, answers).then(function (response) {
             console.log(response);
         }).catch(function (response) {
             console.log(response)
