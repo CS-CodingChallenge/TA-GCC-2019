@@ -1,6 +1,5 @@
-// Use this file to answer question 2
-
-function answer02(risk, bonus, trader) {
+function answer02(risk, bonus, trader) 
+{
     var total = 0;
     for (var j = 0; j < trader.length; j++) 
     {
@@ -25,5 +24,3 @@ function answer02(risk, bonus, trader) {
     }
     return total;
 }
-git push
-module.exports = answer02
